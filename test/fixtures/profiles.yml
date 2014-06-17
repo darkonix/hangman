@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  cpf: MyString
+  username: MyString
+  paypal: MyString
+  disseminator_id: 
+  bio: MyText
+  twitter: MyString
+  facebook: MyString
+  instagram: MyString
+  googleplus: MyString
+  website: MyString
+
+two:
+  name: MyString
+  cpf: MyString
+  username: MyString
+  paypal: MyString
+  disseminator_id: 
+  bio: MyText
+  twitter: MyString
+  facebook: MyString
+  instagram: MyString
+  googleplus: MyString
+  website: MyString

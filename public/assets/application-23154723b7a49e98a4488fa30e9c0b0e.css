@@ -1,0 +1,336 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ * equal sign require_self
+ * equal sign require jquery.ui.all
+ */
+
+ /*@import "home.css.scss";
+ @import "auditions.css.scss";*/
+
+
+ * {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+body#index {
+  color: #303336;
+  font: 14px "Helvetica Neue"; }
+  body#index a {
+    color: #3498db;
+    border-bottom: 1px solid #e0e3e6;
+    text-decoration: none; }
+    body#index a:hover {
+      border-bottom: 1px solid #3498db;
+      color: #0066cc; }
+  body#index #top {
+    background: #303948; }
+    body#index #top header {
+      height: 340px;
+      width: 920px;
+      margin: auto;
+      background: url("logo-320a431b0d005275a054dccb10ec7abe.png") bottom right no-repeat;
+      font-family: "Source Sans Pro Light", "Helvetica Neue LT Com 35 Thin", Arial, sans-serif; }
+      body#index #top header h1 {
+        font-size: 42px;
+        font-weight: normal;
+        color: #fff;
+        padding-top: 80px; }
+      body#index #top header p {
+        font-size: 28px;
+        color: #5999c5;
+        width: 420px;
+        padding-top: 20px; }
+        body#index #top header p strong {
+          font-weight: normal; }
+  body#index #content {
+    width: 920px;
+    padding: 60px 0;
+    margin: 0 auto; }
+    body#index #content section {
+      float: left;
+      width: 260px;
+      padding: 0 60px 0 0; }
+      body#index #content section h3 {
+        font: bold 16px "Century Gothic", Arial, sans-serif; }
+      body#index #content section p {
+        font: 14px/24px "Open Sans", Arial, "Helvetica Neue LT Com 45 Light", serif;
+        padding-top: 12px;
+        color: #606366; }
+        body#index #content section p strong {
+          font-weight: bold; }
+    body#index #content #more {
+      padding-right: 10px; }
+      body#index #content #more strong {
+        font-weight: normal; }
+  body#index #apply {
+    border-bottom: 1px solid #e2e7e8;
+    background: #ecf0f1;
+    padding-bottom: 40px; 
+    overflow: hidden; 
+    position: relative;
+    white-space: nowrap; }
+    body#index #apply #avatares {
+      white-space: nowrap;
+    }
+    body#index #apply #avatares a {
+      border-bottom: 0;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      margin: 0;
+      padding: 0;}
+    body#index #apply .wrap {
+      width: 540px; }
+    body#index #apply h2 {
+      font: 32px "Source Sans Pro Light";
+      text-align: center;
+      padding-top: 20px;
+      color: #5999c5; }
+    body#index #apply p {
+      padding-top: 20px;
+      font: 24px "Source Sans Pro";
+      color: #606466;
+      text-align: center; }
+    body#index #apply p.buttons {
+      width: 440px;
+      margin: 0 auto;
+      padding: 36px 0 40px; }
+      body#index #apply p.buttons .button {
+        display: block;
+        width: 200px;
+        height: 60px;
+        float: left;
+        border-bottom: 0;
+        text-indent: -99999px;
+        margin-right: 40px; }
+        body#index #apply p.buttons .button:active {
+          height: 56px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          position: relative;
+          top: 4px; }
+      body#index #apply p.buttons #user {
+        background: url("button-users-bcdf9622b7f60526c1533a190f8b3fab.png") center top no-repeat; }
+      body#index #apply p.buttons #agency {
+        margin-right: 0;
+        background: url("button-agency-4430b40862cada86bb612f20155ef0c7.png") center top no-repeat; }
+  body#index footer {
+    background: #fff; }
+    body#index footer i {
+      font-size: 24px;
+      color: #c1cdd1;
+      padding: 0 20px 0 0; }
+    body#index footer .wrap {
+      width: 920px;
+      padding: 40px; }
+      body#index footer .wrap:after {
+        content: "";
+        display: table;
+        clear: both; }
+    body#index footer .wrap a {
+      width: 32px;
+      height: 32px;
+      display: block;
+      float: left;
+      margin: 0 20px 0 0;
+      text-indent: -99999px;
+      border-bottom: 0; }
+    body#index footer .wrap #facebook {
+      background: url('facebook-a2b3393bee721761fdeb50aa8a2b598b.png')
+    }
+    body#index footer .wrap #facebook:hover {
+      background-position: -32px;
+    }
+    body#index footer .wrap #twitter {
+      background: url('twitter-3634c30e47e59074816551ae60e07953.png')
+    }
+    body#index footer .wrap #twitter:hover {
+      background-position: -32px;
+    }
+    body#index footer .copyright {
+      float: right;
+      font: 12px Arial;
+      color: #909396;
+      position: relative;
+      top: 10px; }
+  body#index .wrap {
+    margin: 0 auto; }
+  body#index #content:after, body#index #apply:after, body#index #apply p.buttons:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.container {
+  width: 460px !important;
+  background: #ecf0f1; }
+  .container h3 {
+    font: bold 14px Arial, sans-serif;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e2e7e8; }
+  .container form .row {
+    border-bottom: 1px solid #e2e7e8; }
+    .container form .row input,
+    .container form .row textarea {
+      border: 0;
+      width: 440px;
+      padding: 14px 10px; }
+    .container form .row textarea {
+      height: 80px;
+      vertical-align: top; }
+      .container form .row textarea[placeholder] {
+        font-family: Arial, sans-serif;
+        line-height: 18px; }
+  .container form .actions {
+    background: #303948; }
+    .container form .actions input {
+      background: #1abc9c;
+      padding: 10px 12px;
+      color: #fff;
+      border: 0;
+      margin: 10px;
+      cursor: pointer;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+      border-radius: 3px; }
+
+.container.errors {
+  background: #e74c3c; }
+  .container.errors h3 {
+    color: #fff;
+    border-bottom: 1px solid #d94838; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+div#success {
+  background: #1abc9c;
+  padding: 30px 20px 40px; }
+  div#success h2 {
+    padding-top: 0 !important;
+    color: #fff !important; }
+  div#success p {
+    color: #c6eee6 !important; }
+
+/* modal */
+.modal {
+  display: none;
+  width: 460px;
+  background: #fff;
+  padding: 0;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000; }
+
+.modal a.close-modal {
+  position: absolute;
+  border-bottom: 0 !important;
+  top: -12.5px;
+  right: -12.5px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  background: url('close-647638fa2cfb7b5a7bd4e660b46fe67d.png') no-repeat 0 0; }
+
+.modal-spinner {
+  display: none;
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -32px;
+  margin-top: -32px;
+  background: url('spinner-fe3e2f95c02083dff8f6c5d8f1eee60b') #111111 no-repeat center center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px; }
+
+body.sessions_new {
+  background: #ecf0f1; }
+  body.sessions_new form {
+    margin-top: 60px;
+    background: #fff; }
+    body.sessions_new form #remember_me {
+      padding: 14px 10px;
+      font: 14px sans-serif;
+      color: #909396; }
+      body.sessions_new form #remember_me input[type=checkbox] {
+        position: relative;
+        top: 1px; }
+  body.sessions_new #shared {
+    display: none; }
+
+p.flash {
+  text-align: center;
+  padding: 10px;
+  color: #303948;
+  font: 14px sans-serif; }
+
+p.notice {
+  background: #f1c40f;
+  color: #fff; }
+
+p.alert {
+  background: #e74c3c;
+  color: #fff; }
+
+  body#index.auditions_index {
+  background: #ecf0f1;
+  font: 14px sans-serif; }
+  body#index.auditions_index #header {
+    background: #fff; }
+    body#index.auditions_index #header #logout {
+      float: right;
+      margin: 10px 0; }
+    body#index.auditions_index #header .wrap {
+      width: 740px;
+      margin: 0 auto; }
+      body#index.auditions_index #header .wrap h1 {
+        font: normal 32px "Source Sans Pro Light", sans-serif;
+        padding: 40px 0;
+        float: left; }
+  body#index.auditions_index #content {
+    width: 740px;
+    padding-top: 40px; }
+    body#index.auditions_index #content .tile {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 30px;
+      float: left;
+      width: 680px; }
+      body#index.auditions_index #content .tile .identification {
+        float: left;
+        width: 180px; }
+        body#index.auditions_index #content .tile .identification h2 {
+          font: 16px "Source Sans Pro", sans-serif; }
+        body#index.auditions_index #content .tile .identification .email a {
+          font-size: 11px; }
+        body#index.auditions_index #content .tile .identification .type {
+          padding-top: 20px;
+          font-size: 12px;
+          color: #909396; }
+      body#index.auditions_index #content .tile .info {
+        float: left;
+        padding-left: 10px;
+        position: relative;
+        top: 3px;
+        width: 480px; }

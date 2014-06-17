@@ -1,0 +1,17 @@
+<h1>Jogo da Forca</h1>
+
+<div>
+  Letras erradas: <%= @wrong_letters.upcase %>
+</div>
+<div>
+  Letras corretas: <%= @right_letters.upcase %>
+</div>
+<div>
+  Tentativas falhas: <%= @wrong_letters.length %>
+</div>
+<br><br>
+<div>
+  <% @letters.each do |letter| %>
+    <%= link_to letter, guess_path(guess: letter, round: @round.id) %>
+  <% end %>
+</div>
