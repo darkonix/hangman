@@ -1,2 +1,0 @@
-module UsedWordsHelper
-end

@@ -53,4 +53,4 @@ test:
 
 production:
   <<: *default
-  database: hangman_production
+  database: hangman
