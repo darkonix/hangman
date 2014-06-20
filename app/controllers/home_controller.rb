@@ -1,53 +1,26 @@
 # -*- encoding : utf-8 -*-
 class HomeController < ApplicationController
-  def index    
-  	if params[:round].nil?
-	  @game = Game.new(ip: request.remote_ip)
-	  @round = @game.rounds.build
-	  @game.save
-	else
-	  @round = Round.find(params[:round])
-  	end
+  before_filter :fetch_game, :fetch_won, :fetch_guess
 
-    @letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    
-    word = Word.find(:all).shuffle!.first.word
-    
-    @right_letters = @round.right_letters
-    @wrong_letters = @round.wrong_letters
+  def index
+  	# recebe o chute do usuário
+  	# remove o chute da lista de letras
+  	# checa se o chute está na palavra
+  	  # se está, coloca o chute na lista de  letras corretas e a posiciona na string de impressão
+  	  # se não está, coloca o chute na lista de letras incorretas
+  	# checa a vitória e abre um novo round para o usuário
 
-	if @right_letters.nil?
-	  @right_letters = ''
-	end
-
-	if @wrong_letters.nil?
-	  @wrong_letters = ''
-	end
-
-    max_tries = 6
-
-    input_letter = params[:guess]
-
-    if input_letter.present?
-      @letters.delete(input_letter)
-      count = 0
-	  word.split("").each do |word_letter|
-	   	count += 1
-	    if word_letter == input_letter
-	 	  @right_letters += input_letter
-	  	  break
-	    else
-	  	  if count >= word.length
-	        @wrong_letters += input_letter
-     	  else
-		    next
-		  end
-	    end
-	  end
-	  @round.wrong_letters = @wrong_letters
-	  @round.right_letters = @right_letters	  
-	  @round.save
-	end
+    if @guess.present? && @round_id == @round.id
+      unless @round.wrong_letters.include?(@guess) || @round.right_letters.include?(@guess)
+        if @correct_word.include? @guess
+          @round.right_letters += @guess
+        else
+          @round.wrong_letters += @guess
+        end
+      end
+      check_win
+      @round.save
+    end
 
   	respond_to do |format|
       format.html
@@ -55,8 +28,45 @@ class HomeController < ApplicationController
   end
 
 private
-  	def check_win(word_array)
-  	  win = false
 
+    # traz um jogo salvo pelo token. se não houver, pelo ip. se não houver, cria um novo
+  	def fetch_game()
+  	  if params[:token].present?
+	    @game = Game.find_by_token(params[:token])
+	    @round = @game.rounds.where(win: nil).last
+	  elsif Game.exists?(ip: request.remote_ip)
+	  	# create new game?
+	  	@game = Game.where(ip: request.remote_ip).last
+	  	@round = @game.rounds.where(win: nil).last
+	  else
+	    @game = Game.new(ip: request.remote_ip)
+	    @round = @game.rounds.build
+	    @game.save
+  	  end
+  	  @correct_word = @round.word.word if @round.word.present?
+  	end
+
+    def fetch_won()
+      @won_rounds = @game.rounds.where(win: true).order(:created_at)
+    end
+
+  	# recebe o chute do usuário e modifica o jogo com ele
+  	def fetch_guess()
+      @guess = params[:guess]
+      @round_id = params[:round].to_i
+      @guess.upcase! if @guess.present?
+  	end
+
+  	# checa se o usuário venceu e abre um novo round
+  	def check_win()
+  	  if @round.wrong_letters.length >= Clicplic::Application.config.max_tries
+  	  	@round.win = false
+  	  else
+  	  	len = @correct_word.length
+  	  	@correct_word.split("").each_with_index do |l, i|
+          break unless @round.right_letters.include? l
+          @round.win = true if (i+1 == len)
+        end
+      end
   	end
 end

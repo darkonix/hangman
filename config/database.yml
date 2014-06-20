@@ -18,13 +18,13 @@
 development: &default
   adapter: postgresql
   encoding: unicode
-  username: forca
+  username: postgres
   pool: 5
-  password: forca123
+  password: root
 
 development:
   <<: *default
-  database: forca
+  database: hangman
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,8 +49,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: clicplic_test
+  database: hangman_test
 
 production:
   <<: *default
-  database: clicplic_production
+  database: hangman_production

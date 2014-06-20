@@ -8,19 +8,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 words = Word.create([
-	{ word: 'inputavel' }, 
-	{ word: 'parametro' },
-	{ word: 'recalcado' },
-	{ word: 'incidente' },
-	{ word: 'enfatizar' },
-	{ word: 'percepcao' },
-	{ word: 'conciliar' },
-	{ word: 'homogeneo' },
-	{ word: 'pederasta' },
-	{ word: 'esdruxulo' },
-	{ word: 'ressaltar' },
-	{ word: 'precursor' },
-	{ word: 'midiatico' },
-	{ word: 'salientar' },
-	{ word: 'iminencia' }
+	{ word: 'INPUTAVEL' }, 
+	{ word: 'PARAMETRO' },
+	{ word: 'RECALCADO' },
+	{ word: 'INCIDENTE' },
+	{ word: 'ENFATIZAR' },
+	{ word: 'PERCEPCAO' },
+	{ word: 'CONCILIAR' },
+	{ word: 'HOMOGENEO' },
+	{ word: 'PEDERASTA' },
+	{ word: 'ESDRUXULO' },
+	{ word: 'RESSALTAR' },
+	{ word: 'PRECURSOR' },
+	{ word: 'MIDIATICO' },
+	{ word: 'SALIENTAR' },
+	{ word: 'IMINENCIA' }
 ])

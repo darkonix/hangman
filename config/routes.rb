@@ -2,5 +2,6 @@
 Clicplic::Application.routes.draw do 
   root "home#index"
 
-  get '/:round/:guess' => 'home#index', :as => :guess
+  get '/:token' => 'home#index', :as => :game
+  get '/:token/:round/:guess' => 'home#index', :as => :guess
 end

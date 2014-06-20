@@ -1,30 +1,28 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
-  def dynamic_body_id
-    @body_id ? @body_id : [controller_name, action_name].join('_')
+  # seta as letras disponíveis, removendo todas que já foram usadas
+  def current_letters()
+    letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    used_letters = @round.right_letters + @round.wrong_letters
+    used_letters.split("").each do |l|
+      letters.delete(l)
+    end
+
+    letters
   end
 
-  def body_class
-    [controller_name, action_name].join('_')
-  end
+  # checa as letras corretas e as posiciona na palavra impressa usando place_letter()
+  def guessed_word()
+    guessed_word = ''
+    @correct_word.split("").each do |l|
+      if @round.right_letters.include? l
+        guessed_word += l
+      else
+        guessed_word += '_'
+      end
+    end
 
-  def body_action
-    action_name
-  end
-
-  def title(page_title)
-    content_for(:title) { page_title }
-  end
-
-  def link_to_remove_fields(name, f)
-    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
+    guessed_word
   end
   
-  def link_to_add_fields(name, f, association)
-    new_object = f.object.class.reflect_on_association(association).klass.new
-    fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
-      render(association.to_s.singularize + "_fields", :f => builder)
-    end
-    link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
-  end
 end

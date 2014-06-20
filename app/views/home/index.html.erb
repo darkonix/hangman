@@ -1,17 +1,40 @@
-<h1>Jogo da Forca</h1>
-
-<div>
-  Letras erradas: <%= @wrong_letters.upcase %>
-</div>
-<div>
-  Letras corretas: <%= @right_letters.upcase %>
-</div>
-<div>
-  Tentativas falhas: <%= @wrong_letters.length %>
-</div>
-<br><br>
-<div>
-  <% @letters.each do |letter| %>
-    <%= link_to letter, guess_path(guess: letter, round: @round.id) %>
+<div style="float: left; width: 370px">
+  <h1>Jogo da Forca</h1> 
+  <%= link_to 'Link do jogo', game_path(token: @game.token) %>
+  <br>
+  <div>
+    Letras erradas: <%= @round.wrong_letters %>
+  </div>
+  <div>
+    Tentativas falhas: <%= @round.wrong_letters.length %>
+  </div>
+  <br>
+  <% if @round.word_id.nil? %>
+      Parabéns, você acertou todas as palavras!
+  <% else %>
+    <div>
+      <%= guessed_word %>
+    </div>
+    <br>
+    <div>
+      <% if @round.win == true %>
+      	Você ganhou essa rodada, <%= link_to 'comece uma nova!', game_path(token: @game.token) %>
+      <% elsif @round.win == false %>
+        Você perdeu essa rodada, <%= link_to 'tente novamente!', game_path(token: @game.token) %>
+      <% else %>
+        <% current_letters.each do |letter| %>
+          <%= link_to letter, guess_path(guess: letter, round: @round.id, token: @game.token) %>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
+</div>
+
+<div style="float: left; margin: 17px 0 0 50px">
+  <h3>Jogos ganhos</h3>
+  <ol>
+    <% @won_rounds.each do |round| %>
+      <li><%= round.word.word %></li>
+    <% end %>
+  </ol>
 </div>
